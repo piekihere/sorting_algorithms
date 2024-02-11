@@ -2,6 +2,15 @@
 #include <stdlib.h>
 #include <time.h>
 
+int max_value(int *A, int n){
+    int max = 0;
+    for (int i = 0; i < n; i++){
+        if (A[i]>max){
+            max = A[i];
+        }
+    }
+    return max;
+}
 
 void fill_random(int *A, int n){
     srand(time(0));
@@ -272,7 +281,7 @@ int main(){
     //print_array(A, n);
 
     int *B=malloc(n * sizeof(int));
-    countingsort(A, B, 99, n);
+    countingsort(A, B, max_value(A, n), n);
     print_array(B, n);
     
 
